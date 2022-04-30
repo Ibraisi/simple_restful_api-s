@@ -1,14 +1,14 @@
-package com.IbrahimIskif.RestApi.EployeeService;
+package com.IbrahimIskif.RestApi.Service;
 
 import com.IbrahimIskif.RestApi.model.Employee;
-import com.IbrahimIskif.RestApi.model.EmployeeRepostry;
+import com.IbrahimIskif.RestApi.Repositeries.EmployeeRepostry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class EpmloyeesService {
+public class EmployeesService {
     @Autowired
     EmployeeRepostry employeeRepostry;
 
@@ -30,5 +30,11 @@ public class EpmloyeesService {
     }
     public void updateEmp(Employee emp){
         employeeRepostry.save(emp);
+    }
+    public void deleteAllEmp(){
+        employeeRepostry.deleteAll();
+    }
+    public List<Employee> getEmpsByDep(Long depId){
+        return employeeRepostry.findByDepartmentId(depId);
     }
 }
