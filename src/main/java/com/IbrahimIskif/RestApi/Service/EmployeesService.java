@@ -34,7 +34,7 @@ public class EmployeesService {
     public void deleteAllEmp(){
         employeeRepostry.deleteAll();
     }
-    public List<Employee> getEmpsByDep(Long depId){
+    public List<Employee> getAllEmpUnderDep(Long depId){
         return employeeRepostry.findByDepartmentId(depId);
     }
 }

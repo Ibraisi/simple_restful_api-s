@@ -14,15 +14,15 @@ public class DepController {
     @Autowired
     private DepartmentService departmentService;
     @GetMapping("/DepartmentById")
-    public Department getEmpById(@RequestParam long id){
+    public Department getDepById(@RequestParam long id){
         return departmentService.getDepById(id);
     }
     @GetMapping("/Departments")
-    public List<Department> getAAlldep(){
+    public List<Department> getAlldep(){
         return departmentService.getAllDep();
     }
 
-    @GetMapping("/EmployeeByName")
+    @GetMapping("/DepartmentByName")
     public List<Department> getDepByName(@RequestParam String name){
         return departmentService.getDepByName(name);
     }
@@ -36,13 +36,13 @@ public class DepController {
         departmentService.deleteDepById(id);
         return "Dep deleted";
     }
-    @DeleteMapping
-    public String deleteAll(){
+    @DeleteMapping("/Departments")
+    public String deleteAllDep(){
         departmentService.deleteAllDep();
         return "All dep's Deleted";
     }
-    @PutMapping("/Employees")
-    public String deleteEmpByID(@RequestBody Department dep){
+    @PutMapping("/Departments")
+    public String updateDep(@RequestBody Department dep){
         departmentService.updateDep(dep);
         return "Dep updated";
     }

@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface DepartmentRepositry extends JpaRepository<Department,Long> {
-    public List<Department> findByFirstName (String department);
+    List<Department> findBydepartment (String department);
 }

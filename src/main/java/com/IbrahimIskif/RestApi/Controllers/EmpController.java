@@ -17,8 +17,9 @@ public class EmpController {
         return "hello world!";
     }
 
-    public List<Employee> getEmpsByDep(long depId){
-        return employeesService.getEmpsByDep(depId);
+    @GetMapping("/Departments/{depId}/Employees")
+    public List<Employee> getEmpsByDep(@PathVariable long depId){
+        return employeesService.getAllEmpUnderDep(depId);
     }
     @GetMapping("/EmployeeById")
     public Employee getEmpById(@RequestParam long id){
@@ -43,7 +44,7 @@ public class EmpController {
         employeesService.deleteEmpbyId(id);
         return "Emp deleted";
     }
-    @DeleteMapping
+    @DeleteMapping("/Employees")
     public String deleteAll(){
         employeesService.deleteAllEmp();
         return "All Emp's Deleted";

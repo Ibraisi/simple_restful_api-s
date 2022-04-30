@@ -23,7 +23,7 @@ public class DepartmentService {
     }
 
     public List<Department> getDepByName(String name) {
-        return departmentRepositry.findByFirstName(name);
+        return departmentRepositry.findBydepartment(name);
     }
 
     public void addDep(Department newDep) {
